@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jquery ve Javascript ile CSS İşlemleri</title>
+    <script src="/jquery-3.6.1.min.js"></script>
+    <style>
+        .baslik
+        {
+            color: red;
+            font-size: larger;
+        }
+        .sekil
+        {
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>Jquery ve Javascript ile CSS İşlemleri</h1>
+    
+    <h3 id="jqilegizle">Bu element Jquery ile gizlenecek</h3>
+    <h3 id="jsilegizle">Bu element Javascript ile gizlenecek</h3>
+
+    <script>
+        $("#jqilegizle").hide();// elementi jquery ile gizle
+        document.getElementById("jsilegizle").style.display = "none";//elementi javascript ile gizle
+
+        // Elementleri Göster
+        $("#jqilegizle").show();//jquary ile elementi görünür yapma
+        document.getElementById("jsilegizle").style.display = "block"; // Elementi javascript ile göster
+
+    </script>
+
+    <h2>Elementleri CSS lerini değiştirme</h2>
+
+    <div id="jqsekillendir" class="sekil test">Elementleri CSS lerini değiştirme</div>
+    <div id="jssekillendir" class="jssekil test">Elementleri CSS lerini değiştirme</div>
+    <style>.jsclass{background-color:blueviolet;}</style>
+    <script>
+       //Jquery ile CSS İşlemleri
+       $("#jqsekillendir").css("font-size","34px");
+       $("#jqsekillendir").css("padding","1rem");//1 rem 16px e karşılık gelir.Bir ölçü birimidir. Padding dıştan içe boşluk bırakır.
+       $("#jqsekillendir").css("margin","18px");//margin dış boşluk verir
+       //$("#jqsekillendir").css("padding","1rem").css("margin","18px"); bu şekildede tek  seferde yazabiliriz
+
+       //Jquery ile class ekleme-silme
+       $("h2:first").addClass("baslik");
+       $("#jqsekillendir").addClass("jsclass deneme");// içinde yazan her şeyi ayrı classalr olarak ekledik. Deneme diye bir class yok fakat bunuda algılar ve uygular. Sonradan deneme diye bir class koyarsak her bir kelimeyi ayrı ayrı uygular
+
+       //  var olan class ı kaldırma
+       $("#jqsekillendir").removeClass("sekil");
+
+       //Javascript ile CSS işlemleri
+        document.getElementById("jssekillendir").style.color ="blue";
+        document.getElementById("jssekillendir").style.padding ="18px";
+        document.getElementById("jssekillendir").style.margin ="1rem";
+        
+        //Javascript ile class ekleme-silme
+        document.getElementById("jssekillendir").classList.add("jsclass");// bu istenilen classı ekler
+        document.getElementById("jssekillendir").classList.remove("jsclass"); //bu istenilen classı siler
+        
+    </script>
+    
+</body>
+</html>
